@@ -23,11 +23,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ayush | A Passionate Software Engineer",
-    template: "%s | Portfolio",
+    default: `${DATA.en.name} | Software Engineer`,
+    template: `%s | ${DATA.en.name}`,
   },
-  description:
-    "A passionate developer building digital experiences that inspire. Explore my projects, skills, and professional journey.",
+  description: DATA.en.summary,
   keywords: [
     "developer",
     "portfolio",
@@ -36,17 +35,16 @@ export const metadata: Metadata = {
     "react",
     "nextjs",
   ],
-  authors: [{ name: "Ayush Kumar Tiwari" }],
-  creator: "Ayush Kumar Tiwari",
-  metadataBase: new URL("https://itsayuu.vercel.app"),
+  authors: [{ name: DATA.en.name }],
+  creator: DATA.en.name,
+  metadataBase: new URL("https://portfolio-zaid-rho.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://itsayuu.vercel.app",
-    title: "Ayush | A Passionate Software Engineer",
-    description:
-      "A passionate developer building digital experiences that inspire.",
-    siteName: "Portfolio",
+    url: "https://portfolio-zaid-rho.vercel.app",
+    title: `${DATA.en.name} | Software Engineer`,
+    description: DATA.en.summary,
+    siteName: `${DATA.en.name} | Portfolio`,
   },
   robots: {
     index: true,
@@ -60,7 +58,8 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.en.name}`,
+    title: `${DATA.en.name} | Software Engineer`,
+    description: DATA.en.summary,
     card: "summary_large_image",
   },
   verification: {
