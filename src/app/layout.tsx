@@ -70,11 +70,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/Ayush.svg",
+        url: "/Zaid_light.svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/Ayush_dark.svg",
+        url: "/Zaid_dark.svg",
         media: "(prefers-color-scheme: dark)",
       },
     ],

@@ -11,6 +11,7 @@ export const en = {
     // Sections
     about: "About",
     workExperience: "Work Experience",
+    leadershipExperience: "Leadership & Organizational Experience",
     education: "Education",
     skills: "Skills",
     projects: "Projects",

@@ -54,25 +54,31 @@ const buildData = (p: PortfolioData, lang: "en" | "id") => {
 
   const allSkills = [...skillsWithIcons, ...skillsWithoutIcons].slice(0, 14);
 
-  // Build work from experiences (professional + internship + contract types)
+  const mapExperience = (e: Experience) => {
+    const dates = formatDateRange(e.startDate, lang, e.endDate, e.isOngoing);
+    return {
+      company: e.company,
+      href: e.externalLink || "#",
+      badges: [] as string[],
+      location: e.location,
+      title: e.position,
+      logoUrl: e.logo,
+      start: dates.start,
+      end: dates.end,
+      description: e.description + (e.responsibilities?.length ? " " + e.responsibilities.join(". ") + "." : ""),
+    };
+  };
+
+  // Portfolio data has legacy capitalized types, so normalize before filtering.
+  const professionalTypes = ["full-time", "part-time", "internship", "freelance", "contract", "apprenticeship", "self-employed"];
   const workExperiences = p.experiences
-    .filter((e: Experience) => ["internship", "freelance", "contract"].includes(e.type))
+    .filter((e: Experience) => professionalTypes.includes(e.type.toLowerCase()))
     .sort((a: Experience, b: Experience) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
-    .map((e: Experience) => {
-      const dates = formatDateRange(e.startDate, lang, e.endDate, e.isOngoing);
-      return {
-        company: e.company,
-        href: e.externalLink || "#",
-        badges: [] as string[],
-        location: e.location,
-        title: e.position,
-        logoUrl: e.logo,
-        start: dates.start,
-        end: dates.end,
-        // FIX: Wrapped e.responsibilities in a safe check to handle when it's undefined
-        description: e.description + (e.responsibilities && e.responsibilities.length > 0 ? " " + e.responsibilities.join(". ") + "." : ""),
-      };
-    });
+    .map(mapExperience);
+  const leadershipExperiences = p.experiences
+    .filter((e: Experience) => e.type.toLowerCase() === "volunteer")
+    .sort((a: Experience, b: Experience) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
+    .map(mapExperience);
 
   // Build education
   const educationItems = p.education.map((e: Education) => {
@@ -198,7 +204,7 @@ const buildData = (p: PortfolioData, lang: "en" | "id") => {
       social: {
         GitHub: {
           name: "GitHub",
-          url: github?.url || "https://github.com/itsayu",
+          url: github?.url || "https://github.com/QaziZaid16",
           icon: Icons.github,
           navbar: true,
         },
@@ -229,6 +235,7 @@ const buildData = (p: PortfolioData, lang: "en" | "id") => {
       },
     },
     work: workExperiences,
+    leadership: leadershipExperiences,
     education: educationItems,
     projects: projectItems,
     hackathons: allHackathons,

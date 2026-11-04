@@ -12,7 +12,7 @@ import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import GallerySection from "@/components/section/gallery-section";
-import BlogSection from "@/components/section/blog-section";
+// import BlogSection from "@/components/section/blog-section";
 import {
   ArrowUpRight,
   BadgeCheck,
@@ -371,14 +371,16 @@ export default function Page() {
           <GallerySection interactive={false} />
         </BlurFade>
       </section>
+      {/* Blog section hidden for now.
       <section id="blog">
         <BlurFade delay={BLUR_FADE_DELAY * 15.5}>
           <BlogSection />
         </BlurFade>
       </section>
+      */}
       <section id="github">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
-          <GithubContributions username="itsayu" />
+          <GithubContributions username="QaziZaid16" />
         </BlurFade>
       </section>
       <section id="contact">

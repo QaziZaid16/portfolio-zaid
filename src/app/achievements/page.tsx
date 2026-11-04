@@ -29,11 +29,6 @@ export default function AchievementsPage() {
         };
     }, [selectedCert]);
 
-    // Reset pagination when search changes
-    useEffect(() => {
-        setCertPage(1);
-    }, [searchQuery]);
-
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [certPage]);
@@ -186,7 +181,10 @@ export default function AchievementsPage() {
                             type="text"
                             placeholder={t.searchByName}
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setCertPage(1);
+                            }}
                             className="w-full bg-muted/20 border border-border/50 rounded-xl py-3 md:py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         />
                     </div>
@@ -254,7 +252,10 @@ export default function AchievementsPage() {
                     <h3 className="text-2xl font-bold">{t.noResultsFound}</h3>
                     <p className="text-muted-foreground mt-2 max-w-sm mx-auto text-lg">{t.noAchievementsFound}</p>
                     <button
-                        onClick={() => setSearchQuery("")}
+                        onClick={() => {
+                            setSearchQuery("");
+                            setCertPage(1);
+                        }}
                         className="mt-6 px-6 py-2 bg-primary text-primary-foreground rounded-lg font-bold hover:bg-primary/90 transition-colors"
                     >
                         {t.clearSearch}

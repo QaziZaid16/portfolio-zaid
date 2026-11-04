@@ -20,11 +20,6 @@ export default function ProjectsPage() {
     const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Reset pagination when search changes
-    useEffect(() => {
-        setCurrentPage(1);
-    }, [searchQuery]);
-
     // Scroll to top when page changes
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -74,12 +69,18 @@ export default function ProjectsPage() {
                             type="text"
                             placeholder={t.searchProjects}
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={(e) => {
+                                setSearchQuery(e.target.value);
+                                setCurrentPage(1);
+                            }}
                             className="w-full bg-muted/20 border border-border/50 rounded-xl py-2.5 pl-10 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
                         />
                         {searchQuery && (
                             <button
-                                onClick={() => setSearchQuery("")}
+                                onClick={() => {
+                                    setSearchQuery("");
+                                    setCurrentPage(1);
+                                }}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 <X className="size-4" />
@@ -149,7 +150,10 @@ export default function ProjectsPage() {
                         {t.noProjectsMatching}
                     </p>
                     <button
-                        onClick={() => setSearchQuery("")}
+                        onClick={() => {
+                            setSearchQuery("");
+                            setCurrentPage(1);
+                        }}
                         className="mt-6 px-5 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
                     >
                         {t.clearSearch}

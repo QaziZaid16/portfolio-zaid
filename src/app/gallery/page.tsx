@@ -3,7 +3,7 @@
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { useTranslation } from "@/i18n/context";
-import { useRef, useEffect, useState, useMemo } from "react";
+import { useRef, useEffect, useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, X, ListFilter, Check } from "lucide-react";
 
@@ -25,6 +25,18 @@ export default function GalleryPage() {
         });
     }, [sortOrder, data.gallery]);
 
+    const navigate = useCallback((direction: "prev" | "next") => {
+        const total = sortedItems.length;
+        if (total === 0) return;
+
+        setSelectedImageIndex((currentIndex) => {
+            if (currentIndex === null) return currentIndex;
+            return direction === "prev"
+                ? (currentIndex - 1 + total) % total
+                : (currentIndex + 1) % total;
+        });
+    }, [sortedItems.length]);
+
     // Keyboard navigation & body scroll lock for the lightbox
     useEffect(() => {
         if (selectedImageIndex !== null) {
@@ -39,7 +51,7 @@ export default function GalleryPage() {
         } else {
             document.body.style.overflow = "unset";
         }
-    }, [selectedImageIndex]);
+    }, [selectedImageIndex, navigate]);
 
     // Close sorting dropdown on clicking outside
     useEffect(() => {
@@ -51,16 +63,6 @@ export default function GalleryPage() {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-
-    const navigate = (direction: "prev" | "next") => {
-        if (selectedImageIndex === null) return;
-        const total = sortedItems.length;
-        if (direction === "prev") {
-            setSelectedImageIndex((selectedImageIndex - 1 + total) % total);
-        } else {
-            setSelectedImageIndex((selectedImageIndex + 1) % total);
-        }
-    };
 
     return (
         <div className="min-h-screen bg-background text-foreground py-8 md:py-16 px-3 sm:px-6 lg:px-8 transition-colors duration-300">

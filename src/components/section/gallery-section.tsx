@@ -3,7 +3,7 @@
 
 import { DATA } from "@/data/resume";
 import { useTranslation } from "@/i18n/context";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, ArrowRight, X, Calendar } from "lucide-react";
@@ -46,22 +46,23 @@ export default function GallerySection({ interactive = true }: GallerySectionPro
         }
     };
 
+    const navigate = useCallback((direction: "prev" | "next") => {
+        const total = items.length;
+        if (total === 0) return;
+        setSelectedImageIndex((currentIndex) => {
+            if (currentIndex === null) return currentIndex;
+            return direction === "prev"
+                ? (currentIndex - 1 + total) % total
+                : (currentIndex + 1) % total;
+        });
+    }, [items.length]);
+
     useEffect(() => {
         if (scrollRef.current) {
             const singleSetWidth = scrollRef.current.scrollWidth / 3;
             scrollRef.current.scrollLeft = singleSetWidth;
         }
     }, []);
-
-    const navigate = (direction: "prev" | "next") => {
-        if (selectedImageIndex === null) return;
-        const total = items.length;
-        if (direction === "prev") {
-            setSelectedImageIndex((selectedImageIndex - 1 + total) % total);
-        } else {
-            setSelectedImageIndex((selectedImageIndex + 1) % total);
-        }
-    };
 
     useEffect(() => {
         if (selectedImageIndex !== null) {
@@ -76,7 +77,7 @@ export default function GallerySection({ interactive = true }: GallerySectionPro
         } else {
             document.body.style.overflow = 'unset';
         }
-    }, [selectedImageIndex]);
+    }, [selectedImageIndex, navigate]);
 
     return (
         <section id="gallery" className="w-full h-full py-4">
