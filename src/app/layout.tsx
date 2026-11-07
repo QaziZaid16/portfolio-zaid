@@ -9,6 +9,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { ThemeFavicon } from "@/components/theme-favicon";
+import { DiwaliExperience } from "@/components/diwali-experience";
 import { SITE_URL } from "@/lib/site-url";
 
 const geist = Geist({
@@ -89,6 +90,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <ThemeFavicon />
+          <DiwaliExperience />
           <LanguageProvider>
             <TooltipProvider delayDuration={0}>
               <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">

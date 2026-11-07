@@ -42,6 +42,124 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes diwali-dust-drift {
+  0%, 100% {
+    opacity: 0.18;
+    transform: translate3d(0, 7px, 0);
+  }
+  50% {
+    opacity: 0.58;
+    transform: translate3d(3px, -9px, 0);
+  }
+}
+
+@keyframes diwali-flame-flicker {
+  0%, 100% {
+    transform: rotate(-2deg) scale(0.96, 1.02);
+    transform-origin: 24px 25px;
+  }
+  50% {
+    transform: rotate(2deg) scale(1.04, 0.98);
+    transform-origin: 24px 25px;
+  }
+}
+
+@keyframes diwali-spark-burst {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--spark-angle)) translateY(-5px) scaleY(0.2);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--spark-angle)) translateY(-25px) scaleY(1);
+  }
+}
+
+.diwali-glow {
+  position: absolute;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgb(245 158 11 / 10%), transparent 68%);
+  filter: blur(28px);
+}
+
+.diwali-glow-top {
+  top: -18rem;
+  left: -12rem;
+}
+
+.diwali-glow-bottom {
+  right: -15rem;
+  bottom: -18rem;
+  background: radial-gradient(circle, rgb(251 191 36 / 9%), transparent 68%);
+}
+
+.diwali-dust {
+  position: absolute;
+  top: var(--dust-y);
+  left: var(--dust-x);
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #f6c76a;
+  box-shadow: 0 0 9px 2px rgb(245 158 11 / 28%);
+  animation: diwali-dust-drift 7s ease-in-out var(--dust-delay) infinite;
+}
+
+.diwali-dust-static {
+  opacity: 0.35;
+  animation: none;
+}
+
+.diwali-diya::before {
+  position: absolute;
+  inset: 5px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgb(255 190 75 / 25%), transparent 70%);
+  content: "";
+  opacity: 0.55;
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
+.diwali-diya-lit::before {
+  opacity: 1;
+  filter: blur(5px);
+}
+
+.diwali-flame {
+  transform-box: fill-box;
+  animation: diwali-flame-flicker 1.25s ease-in-out infinite;
+}
+
+.diwali-spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 9px;
+  border-radius: 9999px;
+  background: linear-gradient(to top, transparent, #fff3c4 55%, #f6ad43);
+  transform-origin: center 25px;
+  animation: diwali-spark-burst 750ms ease-out both;
+}
+
+.diwali-spark-static {
+  opacity: 0.85;
+  transform: rotate(var(--spark-angle)) translateY(-18px);
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diwali-dust,
+  .diwali-flame {
+    animation: none;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
