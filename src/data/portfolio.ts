@@ -63,6 +63,7 @@ export const portfolioData: PortfolioData = {
     bio: "I'm a Robotics & AI undergraduate who likes turning ideas into things people can use: AI-powered apps, full-stack products, and small automations that remove real friction. I'm also a community builder, helping organize developer events and bringing people together to learn by building.",
     avatar: "/about/Zaidpfp.png",
     location: "Mohali, Punjab, India",
+    website: "https://portfolio-zaid-rho.vercel.app",
     email: "qazi.zaid16@gmail.com",
     phone: "+918082771896",
     resumeUrl: "https://drive.google.com/file/d/1RDonLuuae-M-1UyDPc8MDkjqGZe3cQ4Y/view?usp=sharing",

@@ -1,6 +1,7 @@
 
 import { ImageResponse } from "next/og";
 import { DATA } from "@/data/resume";
+import { absoluteSiteUrl } from "@/lib/site-url";
 
 export const runtime = "edge";
 
@@ -111,7 +112,7 @@ export default async function Image() {
         const title = "Blog";
         const description = "Thoughts on software development, life, and more.";
         const imageUrl = DATA.en.avatarUrl
-            ? new URL(DATA.en.avatarUrl, DATA.en.url).toString()
+            ? absoluteSiteUrl(DATA.en.avatarUrl, DATA.en.url)
             : undefined;
 
         return new ImageResponse(

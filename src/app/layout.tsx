@@ -9,6 +9,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { ThemeFavicon } from "@/components/theme-favicon";
+import { SITE_URL } from "@/lib/site-url";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: DATA.en.name }],
   creator: DATA.en.name,
-  metadataBase: new URL("https://portfolio-zaid-rho.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
     locale: "en_US",

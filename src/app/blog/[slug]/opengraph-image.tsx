@@ -3,6 +3,7 @@
 import { ImageResponse } from "next/og";
 import { allPosts } from "content-collections";
 import { DATA } from "@/data/resume";
+import { absoluteSiteUrl } from "@/lib/site-url";
 
 export const runtime = "edge";
 
@@ -131,7 +132,7 @@ export default async function Image({
         const { slug } = await params;
         const post = allPosts.find((p) => p._meta.path.replace(/\.mdx$/, "") === slug);
         const imageUrl = DATA.en.avatarUrl
-            ? new URL(DATA.en.avatarUrl, DATA.en.url).toString()
+            ? absoluteSiteUrl(DATA.en.avatarUrl, DATA.en.url)
             : undefined;
 
         if (!post) {
