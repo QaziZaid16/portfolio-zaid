@@ -57,10 +57,10 @@ const galleryImages = [
 export const portfolioData: PortfolioData = {
   personal: {
     name: "Qazi Zaid",
-    title: "Building Intelligent Products & Developer Communities",
+    title: "Building useful AI software and the communities around it",
     subtitle:
-      "Software Engineer | Full-Stack Developer | AI & Community Builder",
-    bio: "I am a Robotics & AI undergraduate, software engineer, and community builder focused on creating intelligent products and practical software. I work across full-stack development, AI-powered applications, automation, and modern backend systems. As Co-Organizer of D4 Community, I also help lead community operations and execute developer events, bringing people together to learn, build, and collaborate.",
+      "Robotics & AI Student | Full-Stack Developer | Community Builder",
+    bio: "I'm a Robotics & AI undergraduate who likes turning ideas into things people can use: AI-powered apps, full-stack products, and small automations that remove real friction. I'm also a community builder, helping organize developer events and bringing people together to learn by building.",
     avatar: "/about/Zaidpfp.png",
     location: "Mohali, Punjab, India",
     email: "qazi.zaid16@gmail.com",
@@ -460,6 +460,20 @@ export const portfolioData: PortfolioData = {
       logo: "/assets/gdg.png",
       externalLink: "",
     },
+   {
+      id: "lead-3",
+      company: "TEC Spartans",
+      position: "City Admin",
+      description: "Serving as City Admin for TEC Spartans.",
+      responsibilities: [],
+      skills: [],
+      startDate: "2024-11-01",
+      isOngoing: true,
+      location: "",
+      type: "volunteer",
+      logo: "/assets/tecSpartanslogo.png",
+      externalLink: "",
+    },
   ],
   education: [
     {
@@ -584,185 +598,51 @@ export const portfolioData: PortfolioData = {
     },
   ],
   techStack: [
-    // Core Languages
-    {
-      name: "Python",
-      icon: "https://cdn.simpleicons.org/python",
-      category: "language",
-    },
-    {
-      name: "Java",
-      icon: "https://cdn.simpleicons.org/openjdk",
-      category: "language",
-    },
-    {
-      name: "C",
-      icon: "https://cdn.simpleicons.org/c",
-      category: "language",
-    },
-    {
-      name: "TypeScript",
-      icon: "https://cdn.simpleicons.org/typescript",
-      category: "language",
-    },
-    {
-      name: "JavaScript",
-      icon: "https://cdn.simpleicons.org/javascript",
-      category: "language",
-    },
-    {
-      name: "C++",
-      icon: "https://cdn.simpleicons.org/c++",
-      category: "language",
-    },
-
-    // Frontend & Frameworks
-    {
-      name: "React.js",
-      icon: "https://cdn.simpleicons.org/react",
-      category: "framework",
-    },
-    {
-      name: "Next.js",
-      icon: "https://cdn.simpleicons.org/nextdotjs",
-      category: "framework",
-    },
-    {
-      name: "Flutter",
-      icon: "https://cdn.simpleicons.org/flutter",
-      category: "framework",
-    },
-    {
-      name: "FastAPI",
-      icon: "https://cdn.simpleicons.org/fastapi",
-      category: "framework",
-    },
-    {
-      name: "Node.js",
-      icon: "https://cdn.simpleicons.org/nodedotjs",
-      category: "framework",
-    },
-
-    // Libraries
-    {
-      name: "Tailwind CSS",
-      icon: "https://cdn.simpleicons.org/tailwindcss",
-      category: "library",
-    },
-
-    // Databases
-    {
-      name: "MongoDB",
-      icon: "https://cdn.simpleicons.org/mongodb",
-      category: "database",
-    },
-    {
-      name: "Redis",
-      icon: "https://cdn.simpleicons.org/redis",
-      category: "database",
-    },
-    {
-      name: "PostgreSQL",
-      icon: "https://cdn.simpleicons.org/postgresql",
-      category: "database",
-    },
-
-    // Cloud Native & Infrastructure
-    {
-      name: "Supabase",
-      icon: "https://cdn.simpleicons.org/supabase",
-      category: "tool",
-    },
-    {
-      name: "Docker",
-      icon: "https://api.iconify.design/logos:docker-icon.svg",
-      category: "tool",
-    },
-    {
-      name: "Git",
-      icon: "https://api.iconify.design/logos:git-icon.svg",
-      category: "tool",
-    },
-    {
-      name: "GitHub",
-      icon: "https://api.iconify.design/logos:github-icon.svg",
-      category: "tool",
-    },
-    { 
-      name: "n8n", 
-      icon: "https://cdn.simpleicons.org/n8n", category: "tool" },
-    {
-      name: "Postman",
-      icon: "https://api.iconify.design/logos:postman-icon.svg",
-      category: "tool",
-    },
-    {
-      name: "AWS",
-      icon: "https://api.iconify.design/logos:aws.svg",
-      category: "tool",
-    },
-    {
-      name: "Vercel",
-      icon: "https://api.iconify.design/logos:vercel-icon.svg",
-      category: "tool",
-    },
-    { 
-      name: "v0", 
-      icon: "https://cdn.simpleicons.org/v0", category: "tool" },
-    {
-      name: "n8n",
-      icon: "https://cdn.simpleicons.org/n8n",
-      category: "tool",
-    },
+    { name: "Python", icon: "https://cdn.simpleicons.org/python", category: "language" },
+    { name: "Java", icon: "https://cdn.simpleicons.org/openjdk", category: "language" },
+    { name: "C", icon: "https://cdn.simpleicons.org/c", category: "language" },
+    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript", category: "language" },
+    { name: "SQL", icon: "https://cdn.simpleicons.org/postgresql", category: "database" },
+    { name: "React.js", icon: "https://cdn.simpleicons.org/react", category: "framework" },
+    { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs", category: "framework" },
+    { name: "Express.js", icon: "https://cdn.simpleicons.org/express", category: "framework" },
+    { name: "FastAPI", icon: "https://cdn.simpleicons.org/fastapi", category: "framework" },
+    { name: "HTML", icon: "https://cdn.simpleicons.org/html5", category: "framework" },
+    { name: "CSS", icon: "https://cdn.simpleicons.org/css3", category: "framework" },
+    { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain", category: "library" },
+    { name: "LangGraph", icon: "https://cdn.simpleicons.org/langchain", category: "library" },
+    { name: "Gemini AI", icon: "https://cdn.simpleicons.org/googlegemini", category: "library" },
+    { name: "OpenRouter", icon: "https://cdn.simpleicons.org/openrouter", category: "library" },
+    { name: "FAISS", icon: "", category: "library" },
+    { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb", category: "database" },
+    { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql", category: "database" },
+    { name: "SQLite", icon: "https://cdn.simpleicons.org/sqlite", category: "database" },
+    { name: "Git", icon: "https://cdn.simpleicons.org/git", category: "tool" },
+    { name: "GitHub", icon: "https://cdn.simpleicons.org/github", category: "tool" },
+    { name: "Render", icon: "https://cdn.simpleicons.org/render", category: "cloud" },
+    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel", category: "cloud" },
+    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase", category: "cloud" },
+    { name: "n8n", icon: "https://cdn.simpleicons.org/n8n", category: "tool" },
   ],
   hardSkills: [
-    // Software Engineering & Architecture
-    {
-      name: "Full Stack Development",
-      level: "beginner",
-      category: "software",
-      description:
-        "Engineering scalable web architectures from pixel-perfect frontends to robust databases.",
-    },
-    {
-      name: "System Architecture",
-      level: "beginner",
-      category: "software",
-      description:
-        "Designing robust, scalable, and high-performance system architectures for complex applications.",
-    },
-
-    // Artificial Intelligence & Advanced Analytics
-    {
-      name: "Computer Vision",
-      level: "beginner",
-      category: "ai",
-      description:
-        "Developing real-time object detection, pattern recognition, and spatial analysis systems.",
-    },
-    {
-      name: "Large Language Models (LLM)",
-      level: "beginner",
-      category: "ai",
-      description:
-        "Expertise in fine-tuning open-source models, RAG architectures, and complex prompt engineering.",
-    },
-    {
-      name: "AI Agents & Autonomy",
-      level: "beginner",
-      category: "ai",
-      description:
-        "Designing autonomous systems with recursive reasoning and decision-making capabilities.",
-    },
-
-    // Cloud & DevOps
-    {
-      name: "Google Cloud Platform",
-      level: "beginner",
-      category: "cloud",
-      description:
-        "Utilizing cloud infrastructure and services for scalable application hosting.",
-    },
+    { name: "LLM APIs", category: "ai", description: "Integrating language model APIs into applications." },
+    { name: "Retrieval-Augmented Generation (RAG)", category: "ai", description: "Building RAG pipelines with vector embeddings and semantic search." },
+    { name: "Vector Embeddings", category: "ai" },
+    { name: "Semantic Search", category: "ai" },
+    { name: "AI Agents", category: "ai" },
+    { name: "REST APIs", category: "software" },
+    { name: "Full-Stack Development", category: "software" },
+    { name: "Data Structures & Algorithms", category: "software" },
+    { name: "Operating Systems", category: "software" },
+    { name: "Database Management Systems (DBMS)", category: "software" },
+    { name: "Object-Oriented Programming", category: "software" },
+    { name: "Workflow Automation", category: "other" },
+    { name: "Webhooks", category: "other" },
+    { name: "Email Automation", category: "other" },
+    { name: "API Integrations", category: "other" },
+    { name: "QR Generation", category: "other" },
+    { name: "CI/CD Fundamentals", category: "devops" },
+    { name: "Environment Configuration", category: "devops" },
   ],
   softSkills: [
     {
@@ -804,56 +684,12 @@ export const portfolioData: PortfolioData = {
     },
   ],
   tools: [
-    {
-      name: "VS Code",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg",
-      category: "ide",
-    },
-    {
-      name: "Figma",
-      icon: "https://cdn.simpleicons.org/figma",
-      category: "design",
-    },
-    {
-      name: "GitHub",
-      icon: "https://cdn.simpleicons.org/github",
-      category: "devops",
-    },
-    {
-      name: "Git",
-      icon: "https://cdn.simpleicons.org/git",
-      category: "devops",
-    },
-    {
-      name: "Postman",
-      icon: "https://cdn.simpleicons.org/postman",
-      category: "devops",
-    },
-    {
-      name: "Ollama",
-      icon: "https://cdn.simpleicons.org/ollama",
-      category: "devops",
-    },
-    {
-      name: "n8n",
-      icon: "https://cdn.simpleicons.org/n8n",
-      category: "devops",
-    },
-    {
-      name: "Vercel",
-      icon: "https://cdn.simpleicons.org/vercel",
-      category: "devops",
-    },
-    {
-      name: "V0",
-      icon: "https://cdn.simpleicons.org/v0",
-      category: "devops",
-    },
-    {
-      name: "Claude",
-      icon: "https://cdn.simpleicons.org/Claude",
-      category: "devops",
-    },
+    { name: "Git", icon: "https://cdn.simpleicons.org/git", category: "devops" },
+    { name: "GitHub", icon: "https://cdn.simpleicons.org/github", category: "devops" },
+    { name: "n8n", icon: "https://cdn.simpleicons.org/n8n", category: "devops" },
+    { name: "Render", icon: "https://cdn.simpleicons.org/render", category: "devops" },
+    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel", category: "devops" },
+    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase", category: "devops" },
   ],
   faqs: [
   {

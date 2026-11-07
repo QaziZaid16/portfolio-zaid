@@ -106,11 +106,15 @@ export default function SkillsPage() {
                                                 >
                                                     <div className="flex items-center justify-between">
                                                         <span className="text-sm font-semibold text-foreground">{skill.name}</span>
-                                                        <span className={`text-[10px] font-medium uppercase px-2 py-0.5 rounded-full border ${levelColors[skill.level] || ""}`}>
-                                                            {skill.level}
-                                                        </span>
+                                                        {skill.level && (
+                                                            <span className={`text-[10px] font-medium uppercase px-2 py-0.5 rounded-full border ${levelColors[skill.level] || ""}`}>
+                                                                {skill.level}
+                                                            </span>
+                                                        )}
                                                     </div>
-                                                    <p className="text-xs text-muted-foreground leading-relaxed">{skill.description}</p>
+                                                    {skill.description && (
+                                                        <p className="text-xs text-muted-foreground leading-relaxed">{skill.description}</p>
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>

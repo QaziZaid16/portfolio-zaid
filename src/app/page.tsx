@@ -28,35 +28,28 @@ const BLUR_FADE_DELAY = 0.04;
 
 const homepageTechStackAI = [
   { name: "Python", icon: "https://cdn.simpleicons.org/python" },
-  { name: "Go Lang", icon: "https://cdn.simpleicons.org/go" },
-  { name: "React.js", icon: "https://cdn.simpleicons.org/react" },
-  { name: "Ionic", icon: "https://cdn.simpleicons.org/ionic" },
+  { name: "Gemini AI", icon: "https://cdn.simpleicons.org/googlegemini" },
+  { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain" },
+  { name: "LangGraph", icon: "https://cdn.simpleicons.org/langchain" },
+  { name: "FAISS", icon: "" },
   { name: "FastAPI", icon: "https://cdn.simpleicons.org/fastapi" },
-  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
 ];
 
 const homepageTechStackSoftware = [
+  { name: "React.js", icon: "https://cdn.simpleicons.org/react" },
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs" },
-  { name: "Angular.js", icon: "https://cdn.simpleicons.org/angular" },
+  { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs" },
+  { name: "Express.js", icon: "https://cdn.simpleicons.org/express" },
   { name: "PostgreSQL", icon: "https://cdn.simpleicons.org/postgresql" },
-  { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
+  { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb" },
 ];
 
 const homepageHardSkills = [
-  { name: "Frontend Engineering (React.js / Next.js)", level: "intermediate" },
-  { name: "TypeScript & JavaScript", level: "intermediate" },
-  { name: "Go (Golang) Backend Development", level: "intermediate" },
-  { name: "RESTful APIs & Microservices", level: "intermediate" },
-  // { name: "DevOps & Cloud Fundamentals (Docker / AWS basics)", level: "intermediate", },
+  { name: "RAG Pipelines" },
+  { name: "AI Agents" },
+  { name: "REST APIs" },
+  { name: "Workflow Automation" },
 ];
-
-const levelColors: Record<string, string> = {
-  expert: "border-green-500/50 ring-green-500/20",
-  advanced: "border-blue-500/50 ring-blue-500/20",
-  intermediate: "border-amber-500/50 ring-amber-500/20",
-  beginner: "border-gray-500/50 ring-gray-500/20",
-};
 
 export default function Page() {
   const { t, lang } = useTranslation();
@@ -69,6 +62,10 @@ export default function Page() {
           <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between">
             <div className="gap-2 flex flex-col order-2 md:order-1">
               <BlurFade delay={BLUR_FADE_DELAY} yOffset={8}>
+                <div className="mb-2 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-muted-foreground sm:text-xs">
+                  <span className="size-1.5 rounded-full bg-foreground/70" aria-hidden="true" />
+                  Robotics · AI · Software · Community
+                </div>
                 <h1 className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl leading-tight">
                   <span>{data.name}</span>
                   <BadgeCheck
@@ -86,7 +83,7 @@ export default function Page() {
               <BlurFade delay={BLUR_FADE_DELAY * 2}>
                 <div className="flex flex-wrap items-center gap-y-2 gap-x-4 text-xs md:text-sm text-muted-foreground pt-3">
                   <div className="flex items-center gap-1.5">
-                    <div className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <div className="size-2 rounded-full bg-emerald-500 animate-pulse motion-reduce:animate-none" />
                     <span>{t.availableForOpportunity}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
@@ -230,7 +227,7 @@ export default function Page() {
                 {homepageTechStackAI.map((skill) => (
                   <div
                     key={skill.name}
-                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2"
+                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/50"
                   >
                     {skill.icon && (
                       <img
@@ -247,7 +244,7 @@ export default function Page() {
                 {homepageTechStackSoftware.map((skill) => (
                   <div
                     key={skill.name}
-                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2"
+                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/50"
                   >
                     {skill.icon && (
                       <img
@@ -274,7 +271,7 @@ export default function Page() {
                 {data.tools.slice(0).map((tool: any) => (
                   <div
                     key={tool.name}
-                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2"
+                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/50"
                   >
                     {tool.icon && (
                       <img
@@ -301,7 +298,7 @@ export default function Page() {
                 {homepageHardSkills.map((skill) => (
                   <div
                     key={skill.name}
-                    className={`border bg-background ${levelColors[skill.level] || "border-border ring-border/20"} ring-2 rounded-xl h-8 w-fit px-4 flex items-center gap-2 transition-colors duration-300`}
+                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/50"
                   >
                     <span className="text-foreground text-sm font-medium">
                       {skill.name === "Data Science"
@@ -333,7 +330,7 @@ export default function Page() {
                 {data.softSkills.slice(0, 6).map((skill: any) => (
                   <div
                     key={skill.name}
-                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center"
+                    className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-muted/50"
                   >
                     <span className="text-foreground text-sm font-medium">
                       {skill.name}
